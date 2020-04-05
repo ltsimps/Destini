@@ -2,7 +2,9 @@ import 'story.dart';
 
 
 class StoryBrain {
-List<Story> _storyData = [
+  int storyNumber = 0;
+
+  List<Story> _storyData = [
   Story(
       storyTitle:
       'Your car has blown a tire on a winding road in the middle of nowhere with no cell phone reception. You decide to hitchhike. A rusty pickup truck rumbles to a stop next to you. A man with a wide brimmed hat with soulless eyes opens the passenger door for you and asks: "Need a ride, boy?".',
@@ -34,9 +36,11 @@ List<Story> _storyData = [
       choice2: '')
 ];
 
+
+
  Story getStory() {
 
-   return _storyData.first;
+   return _storyData[storyNumber];
  }
 
  String getChoiceOne(){
@@ -49,6 +53,26 @@ String getChoiceTwo(){
 
   return getStory().choice2;
 }
+
+void nextStory( {int storyChoice = 0}) {
+  if(storyNumber == 0 ){
+     if (storyChoice == 1)
+       storyNumber = 2;
+     else
+       storyNumber = 1;
+  } else if (storyNumber == 1 ) {
+    if (storyChoice == 1)
+      storyNumber = 2;
+    else
+      storyNumber = 3;
+  } else if( storyNumber == 2) {
+    if (storyChoice == 1)
+      storyNumber = 5;
+    else
+      storyNumber = 4;
+  }
+}
+
 }
 
 

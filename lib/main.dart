@@ -3,7 +3,6 @@ import 'story_brain.dart';
 import 'story_brain.dart';
 import 'story_brain.dart';
 
-//TODO: Step 15 - Run the app and see if you can see the screen update with the first story. Delete this TODO if it looks as you expected.
 
 void main() => runApp(Destini());
 
@@ -57,7 +56,11 @@ class _StoryPageState extends State<StoryPage> {
                 child: FlatButton(
                   onPressed: () {
                     //Choice 1 made by user.
-                    //TODO: Step 18 - Call the nextStory() method from storyBrain and pass the number 1 as the choice made by the user.
+                    setState(() {
+                      brain.nextStory(storyChoice: 1);
+
+                    });
+                    print('Choice 1 selected');
                   },
                   color: Colors.red,
                   child: Text(
@@ -78,11 +81,15 @@ class _StoryPageState extends State<StoryPage> {
                 child: FlatButton(
                   onPressed: () {
                     //Choice 2 made by user.
-                    //TODO: Step 19 - Call the nextStory() method from storyBrain and pass the number 2 as the choice made by the user.
+                    setState(() {
+                      brain.nextStory(storyChoice: 2);
+
+                    });
+                    print("choice 2 selected");
                   },
                   color: Colors.blue,
                   child: Text(
-                    
+
                     brain.getChoiceTwo(),
                     style: TextStyle(
                       fontSize: 20.0,
